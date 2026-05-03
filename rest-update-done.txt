@@ -1,12 +1,12 @@
 curl -X PUT http://127.0.0.1:5000/accounts/1 \
 -H "Content-Type: application/json" \
--d '{"name":"Updated","email":"updated@email.com","address":"Bandung","phone_number":"0899999999"}'
+-d '{"name":"Updated","email":"updated@email.com","address":"Semarang","phone_number":"0899999999"}'
 
 Response:
 {
   "id": 1,
   "name": "Updated",
   "email": "updated@email.com",
-  "address": "Bandung",
-  "phone_number": "0899999999"
+  "address": "Semarang",
+  "phone_number": "08153442452"
 }

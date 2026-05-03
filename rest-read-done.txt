@@ -3,8 +3,8 @@ curl -X GET http://127.0.0.1:5000/accounts/1
 Response:
 {
   "id": 1,
-  "name": "Yayan",
-  "email": "yayan@email.com",
-  "address": "Jakarta",
+  "name": "Khalim",
+  "email": "khalim@email.com",
+  "address": "Kudus",
   "phone_number": "08123456789"
 }
