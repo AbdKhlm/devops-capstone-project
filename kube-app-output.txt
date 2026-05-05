@@ -1,1 +1,1 @@
-{"message":"My Accounts API"}
+{"name":"My Accounts API","version":"1.0"}

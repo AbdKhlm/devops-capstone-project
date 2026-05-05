@@ -1,5 +1,332 @@
-GitHub Actions Workflow
-Build successful
-Lint passed
-Tests passed
-Status: SUCCESS
+Current runner version: '2.334.0'
+Runner Image Provisioner
+  Hosted Compute Agent
+  Version: 20260213.493
+  Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+  Build Date: 2026-02-13T00:28:41Z
+  Worker ID: {7bb21d77-70eb-4010-b8f8-9842d664ac1d}
+  Azure Region: northcentralus
+Operating System
+  Ubuntu
+  24.04.4
+  LTS
+Runner Image
+  Image: ubuntu-24.04
+  Version: 20260413.86.1
+  Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260413.86/images/ubuntu/Ubuntu2404-Readme.md
+  Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260413.86
+GITHUB_TOKEN Permissions
+  Contents: read
+  Metadata: read
+  Packages: read
+Secret source: Actions
+Prepare workflow directory
+Prepare all required actions
+Getting action download info
+Download action repository 'actions/checkout@v3' (SHA:f43a0e5ff2bd294095638e18286ca9a3d1956744)
+Complete job name: build
+8s
+Checking docker version
+  /usr/bin/docker version --format '{{.Server.APIVersion}}'
+  '1.48'
+  Docker daemon API version: '1.48'
+  /usr/bin/docker version --format '{{.Client.APIVersion}}'
+  '1.48'
+  Docker client API version: '1.48'
+Clean up resources from previous jobs
+  /usr/bin/docker ps --all --quiet --no-trunc --filter "label=5e577e"
+  /usr/bin/docker network prune --force --filter "label=5e577e"
+Create local container network
+  /usr/bin/docker network create --label 5e577e github_network_b169e5d977f34a27ae1dc437dd0c5fc3
+  05b4b9f797580bb01018addc630134153359fe71ddce5746173218fcd73f2193
+Starting job container
+  /usr/bin/docker pull python:3.9-slim
+  3.9-slim: Pulling from library/python
+  38513bd72563: Pulling fs layer
+  b3ec39b36ae8: Pulling fs layer
+  fc7443084902: Pulling fs layer
+  ea56f685404a: Pulling fs layer
+  ea56f685404a: Waiting
+  b3ec39b36ae8: Verifying Checksum
+  b3ec39b36ae8: Download complete
+  38513bd72563: Verifying Checksum
+  38513bd72563: Download complete
+  ea56f685404a: Verifying Checksum
+  ea56f685404a: Download complete
+  fc7443084902: Verifying Checksum
+  fc7443084902: Download complete
+  38513bd72563: Pull complete
+  b3ec39b36ae8: Pull complete
+  fc7443084902: Pull complete
+  ea56f685404a: Pull complete
+  Digest: sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b
+  Status: Downloaded newer image for python:3.9-slim
+  docker.io/library/python:3.9-slim
+  /usr/bin/docker create --name 4b79ba3133a84044bb9288875e04b974_python39slim_b939b2 --label 5e577e --workdir /__w/devops-capstone-project/devops-capstone-project --network github_network_b169e5d977f34a27ae1dc437dd0c5fc3  -e "HOME=/github/home" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work":"/__w" -v "/home/runner/actions-runner/cached/2.334.0/externals":"/__e":ro -v "/home/runner/work/_temp":"/__w/_temp" -v "/home/runner/work/_actions":"/__w/_actions" -v "/opt/hostedtoolcache":"/__t" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" --entrypoint "tail" python:3.9-slim "-f" "/dev/null"
+  82355cca9386dbf14ac5a93c7c1438a6fdefc5736424a497a98160dbe1800c90
+  /usr/bin/docker start 82355cca9386dbf14ac5a93c7c1438a6fdefc5736424a497a98160dbe1800c90
+  82355cca9386dbf14ac5a93c7c1438a6fdefc5736424a497a98160dbe1800c90
+  /usr/bin/docker ps --all --filter id=82355cca9386dbf14ac5a93c7c1438a6fdefc5736424a497a98160dbe1800c90 --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+  82355cca9386dbf14ac5a93c7c1438a6fdefc5736424a497a98160dbe1800c90 Up Less than a second
+  /usr/bin/docker inspect --format "{{range .Config.Env}}{{println .}}{{end}}" 82355cca9386dbf14ac5a93c7c1438a6fdefc5736424a497a98160dbe1800c90
+  HOME=/github/home
+  GITHUB_ACTIONS=true
+  CI=true
+  PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+  LANG=C.UTF-8
+  GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568
+  PYTHON_VERSION=3.9.25
+  PYTHON_SHA256=00e07d7c0f2f0cc002432d1ee84d2a40dae404a99303e3f97701c10966c91834
+Starting postgres service container
+  /usr/bin/docker pull postgres:latest
+  latest: Pulling from library/postgres
+  3531af2bc2a9: Pulling fs layer
+  4e2103318c3c: Pulling fs layer
+  13f7f91984c8: Pulling fs layer
+  e9cad8a9e695: Pulling fs layer
+  56b9e522a2ac: Pulling fs layer
+  c3f159f3b349: Pulling fs layer
+  6fadfe1078a3: Pulling fs layer
+  85f6ddcd85b0: Pulling fs layer
+  c43308a19dbe: Pulling fs layer
+  2428a49310a9: Pulling fs layer
+  ce10992ea794: Pulling fs layer
+  b7036600a44b: Pulling fs layer
+  e57497b6cf23: Pulling fs layer
+  e9cad8a9e695: Waiting
+  56b9e522a2ac: Waiting
+  c3f159f3b349: Waiting
+  6fadfe1078a3: Waiting
+  85f6ddcd85b0: Waiting
+  c43308a19dbe: Waiting
+  2428a49310a9: Waiting
+  ce10992ea794: Waiting
+  b7036600a44b: Waiting
+  e57497b6cf23: Waiting
+  4e2103318c3c: Download complete
+  13f7f91984c8: Download complete
+  3531af2bc2a9: Verifying Checksum
+  3531af2bc2a9: Download complete
+  e9cad8a9e695: Verifying Checksum
+  e9cad8a9e695: Download complete
+  56b9e522a2ac: Verifying Checksum
+  56b9e522a2ac: Download complete
+  c3f159f3b349: Verifying Checksum
+  c3f159f3b349: Download complete
+  6fadfe1078a3: Download complete
+  85f6ddcd85b0: Verifying Checksum
+  85f6ddcd85b0: Download complete
+  2428a49310a9: Verifying Checksum
+  2428a49310a9: Download complete
+  ce10992ea794: Verifying Checksum
+  ce10992ea794: Download complete
+  b7036600a44b: Verifying Checksum
+  b7036600a44b: Download complete
+  e57497b6cf23: Verifying Checksum
+  e57497b6cf23: Download complete
+  c43308a19dbe: Verifying Checksum
+  c43308a19dbe: Download complete
+  3531af2bc2a9: Pull complete
+  4e2103318c3c: Pull complete
+  13f7f91984c8: Pull complete
+  e9cad8a9e695: Pull complete
+  56b9e522a2ac: Pull complete
+  c3f159f3b349: Pull complete
+  6fadfe1078a3: Pull complete
+  85f6ddcd85b0: Pull complete
+  c43308a19dbe: Pull complete
+  2428a49310a9: Pull complete
+  ce10992ea794: Pull complete
+  b7036600a44b: Pull complete
+  e57497b6cf23: Pull complete
+  Digest: sha256:78481659c47e862334611ccdaf7c369c986b3046da9857112f3b309114a65fb4
+  Status: Downloaded newer image for postgres:latest
+  docker.io/library/postgres:latest
+  /usr/bin/docker create --name 0fa4906834f34733bb23ca6cdbbda57c_postgreslatest_ceba36 --label 5e577e --network github_network_b169e5d977f34a27ae1dc437dd0c5fc3 --network-alias postgres -p 5432:5432  -e "POSTGRES_USER=postgres" -e "POSTGRES_PASSWORD=postgres" -e "POSTGRES_DB=testdb" -e GITHUB_ACTIONS=true -e CI=true postgres:latest
+  3199bb993d4422fed8a693dccd2a84d1703d4f26280d1edfbdef2ba39174aaad
+  /usr/bin/docker start 3199bb993d4422fed8a693dccd2a84d1703d4f26280d1edfbdef2ba39174aaad
+  3199bb993d4422fed8a693dccd2a84d1703d4f26280d1edfbdef2ba39174aaad
+  /usr/bin/docker ps --all --filter id=3199bb993d4422fed8a693dccd2a84d1703d4f26280d1edfbdef2ba39174aaad --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+  3199bb993d4422fed8a693dccd2a84d1703d4f26280d1edfbdef2ba39174aaad Up Less than a second
+  /usr/bin/docker port 3199bb993d4422fed8a693dccd2a84d1703d4f26280d1edfbdef2ba39174aaad
+  5432/tcp -> 0.0.0.0:5432
+  5432/tcp -> [::]:5432
+Waiting for all services to be ready
+  /usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 3199bb993d4422fed8a693dccd2a84d1703d4f26280d1edfbdef2ba39174aaad
+  postgres service is healthy.
+2s
+Run actions/checkout@v3
+  with:
+    repository: AbdKhlm/devops-capstone-project
+    token: ***
+    ssh-strict: true
+    persist-credentials: true
+    clean: true
+    sparse-checkout-cone-mode: true
+    fetch-depth: 1
+    fetch-tags: false
+    lfs: false
+    submodules: false
+    set-safe-directory: true
+/usr/bin/docker exec  82355cca9386dbf14ac5a93c7c1438a6fdefc5736424a497a98160dbe1800c90 sh -c "cat /etc/*release | grep ^ID"
+Syncing repository: AbdKhlm/devops-capstone-project
+Getting Git version info
+  Working directory is '/__w/devops-capstone-project/devops-capstone-project'
+Deleting the contents of '/__w/devops-capstone-project/devops-capstone-project'
+The repository will be downloaded using the GitHub REST API
+To create a local Git repository instead, add Git 2.18 or higher to the PATH
+Downloading the archive
+Writing archive to disk
+Extracting the archive
+/usr/bin/tar xz -C /__w/devops-capstone-project/devops-capstone-project/dfe43cb3-45ba-4eac-b33d-bb22a5a8c32b -f /__w/devops-capstone-project/devops-capstone-project/dfe43cb3-45ba-4eac-b33d-bb22a5a8c32b.tar.gz
+Resolved version AbdKhlm-devops-capstone-project-2597c07
+3s
+Run pip install -r requirements.txt
+  pip install -r requirements.txt
+  shell: sh -e {0}
+WARNING: The directory '/github/home/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Collecting flask
+  Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.4/103.4 kB 30.9 MB/s eta 0:00:00
+Collecting flask-talisman
+  Downloading flask_talisman-1.1.0-py2.py3-none-any.whl (18 kB)
+Collecting flask-cors
+  Downloading flask_cors-6.0.2-py3-none-any.whl (13 kB)
+Collecting nose
+  Downloading nose-1.3.7-py3-none-any.whl (154 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 154.7/154.7 kB 79.0 MB/s eta 0:00:00
+Collecting werkzeug>=3.1.0
+  Downloading werkzeug-3.1.8-py3-none-any.whl (226 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.5/226.5 kB 130.7 MB/s eta 0:00:00
+Collecting click>=8.1.3
+  Downloading click-8.1.8-py3-none-any.whl (98 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.2/98.2 kB 304.7 MB/s eta 0:00:00
+Collecting importlib-metadata>=3.6.0
+  Downloading importlib_metadata-8.7.1-py3-none-any.whl (27 kB)
+Collecting itsdangerous>=2.2.0
+  Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Collecting blinker>=1.9.0
+  Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Collecting markupsafe>=2.1.1
+  Downloading markupsafe-3.0.3-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (20 kB)
+Collecting jinja2>=3.1.2
+  Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 337.4 MB/s eta 0:00:00
+Collecting zipp>=3.20
+  Downloading zipp-3.23.1-py3-none-any.whl (10 kB)
+Installing collected packages: nose, flask-talisman, zipp, markupsafe, itsdangerous, click, blinker, werkzeug, jinja2, importlib-metadata, flask, flask-cors
+Successfully installed blinker-1.9.0 click-8.1.8 flask-3.1.3 flask-cors-6.0.2 flask-talisman-1.1.0 importlib-metadata-8.7.1 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.3 nose-1.3.7 werkzeug-3.1.8 zipp-3.23.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+
+Notice:  A new release of pip is available: 23.0.1 -> 26.0.1
+Notice:  To update, run: pip install --upgrade pip
+1s
+Run pip install flake8
+  pip install flake8
+  shell: sh -e {0}
+WARNING: The directory '/github/home/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Collecting flake8
+  Downloading flake8-7.3.0-py2.py3-none-any.whl (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.9/57.9 kB 30.6 MB/s eta 0:00:00
+Collecting pyflakes<3.5.0,>=3.4.0
+  Downloading pyflakes-3.4.0-py2.py3-none-any.whl (63 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.6/63.6 kB 210.7 MB/s eta 0:00:00
+Collecting mccabe<0.8.0,>=0.7.0
+  Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+Collecting pycodestyle<2.15.0,>=2.14.0
+  Downloading pycodestyle-2.14.0-py2.py3-none-any.whl (31 kB)
+Installing collected packages: pyflakes, pycodestyle, mccabe, flake8
+Successfully installed flake8-7.3.0 mccabe-0.7.0 pycodestyle-2.14.0 pyflakes-3.4.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+
+Notice:  A new release of pip is available: 23.0.1 -> 26.0.1
+Notice:  To update, run: pip install --upgrade pip
+0s
+Run flake8 service tests --ignore=E501,W292,E302
+  flake8 service tests --ignore=E501,W292,E302
+  shell: sh -e {0}
+1s
+Run nosetests
+  nosetests
+  shell: sh -e {0}
+nose.plugins.cover: ERROR: Coverage not available: unable to import coverage module
+test_get_accounts (test_routes.TestService) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.079s
+
+OK
+0s
+Post job cleanup.
+/usr/bin/docker exec  82355cca9386dbf14ac5a93c7c1438a6fdefc5736424a497a98160dbe1800c90 sh -c "cat /etc/*release | grep ^ID"
+0s
+Stop and remove container: 4b79ba3133a84044bb9288875e04b974_python39slim_b939b2
+/usr/bin/docker rm --force 82355cca9386dbf14ac5a93c7c1438a6fdefc5736424a497a98160dbe1800c90
+82355cca9386dbf14ac5a93c7c1438a6fdefc5736424a497a98160dbe1800c90
+Print service container logs: 0fa4906834f34733bb23ca6cdbbda57c_postgreslatest_ceba36
+/usr/bin/docker logs --details 3199bb993d4422fed8a693dccd2a84d1703d4f26280d1edfbdef2ba39174aaad
+ initdb: warning: enabling "trust" authentication for local connections
+ The files belonging to this database system will be owned by user "postgres".
+ initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+ 2026-05-03 16:54:29.549 UTC [1] LOG:  starting PostgreSQL 18.3 (Debian 18.3-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+ 2026-05-03 16:54:29.549 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+ 2026-05-03 16:54:29.549 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+ 2026-05-03 16:54:29.550 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+ 2026-05-03 16:54:29.553 UTC [75] LOG:  database system was shut down at 2026-05-03 16:54:29 UTC
+ 2026-05-03 16:54:29.556 UTC [1] LOG:  database system is ready to accept connections
+ This user must also own the server process.
+ 
+ The database cluster will be initialized with locale "en_US.utf8".
+ The default database encoding has accordingly been set to "UTF8".
+ The default text search configuration will be set to "english".
+ 
+ Data page checksums are enabled.
+ 
+ fixing permissions on existing directory /var/lib/postgresql/18/docker ... ok
+ creating subdirectories ... ok
+ selecting dynamic shared memory implementation ... posix
+ selecting default "max_connections" ... 100
+ selecting default "shared_buffers" ... 128MB
+ selecting default time zone ... Etc/UTC
+ creating configuration files ... ok
+ running bootstrap script ... ok
+ performing post-bootstrap initialization ... ok
+ syncing data to disk ... ok
+ 
+ 
+ Success. You can now start the database server using:
+ 
+     pg_ctl -D /var/lib/postgresql/18/docker -l logfile start
+ 
+ waiting for server to start....2026-05-03 16:54:29.241 UTC [53] LOG:  starting PostgreSQL 18.3 (Debian 18.3-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+ 2026-05-03 16:54:29.242 UTC [53] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+ 2026-05-03 16:54:29.245 UTC [59] LOG:  database system was shut down at 2026-05-03 16:54:29 UTC
+ 2026-05-03 16:54:29.248 UTC [53] LOG:  database system is ready to accept connections
+  done
+ server started
+ CREATE DATABASE
+ 
+ 
+ /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+ 
+ 2026-05-03 16:54:29.432 UTC [53] LOG:  received fast shutdown request
+ waiting for server to shut down....2026-05-03 16:54:29.433 UTC [53] LOG:  aborting any active transactions
+ 2026-05-03 16:54:29.434 UTC [53] LOG:  background worker "logical replication launcher" (PID 62) exited with exit code 1
+ 2026-05-03 16:54:29.435 UTC [57] LOG:  shutting down
+ 2026-05-03 16:54:29.436 UTC [57] LOG:  checkpoint starting: shutdown immediate
+ 2026-05-03 16:54:29.450 UTC [57] LOG:  checkpoint complete: wrote 943 buffers (5.8%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.009 s, sync=0.004 s, total=0.015 s; sync files=303, longest=0.002 s, average=0.001 s; distance=4352 kB, estimate=4352 kB; lsn=0/1B9FBA8, redo lsn=0/1B9FBA8
+ 2026-05-03 16:54:29.458 UTC [53] LOG:  database system is shut down
+  done
+ server stopped
+ 
+ PostgreSQL init process complete; ready for start up.
+ 
+Stop and remove container: 0fa4906834f34733bb23ca6cdbbda57c_postgreslatest_ceba36
+/usr/bin/docker rm --force 3199bb993d4422fed8a693dccd2a84d1703d4f26280d1edfbdef2ba39174aaad
+3199bb993d4422fed8a693dccd2a84d1703d4f26280d1edfbdef2ba39174aaad
+Remove container network: github_network_b169e5d977f34a27ae1dc437dd0c5fc3
+/usr/bin/docker network rm github_network_b169e5d977f34a27ae1dc437dd0c5fc3
+github_network_b169e5d977f34a27ae1dc437dd0c5fc3
+0s
+Cleaning up orphan processes
+Warning: Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v3. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

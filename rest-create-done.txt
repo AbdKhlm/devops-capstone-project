@@ -1,8 +1,11 @@
-curl -X POST http://127.0.0.1:5000/accounts \
+curl -i -X POST http://127.0.0.1:5000/accounts \
 -H "Content-Type: application/json" \
 -d '{"name":"Khalim","email":"khalim@email.com","address":"Kudus","phone_number":"08123456789"}'
 
-Response:
+HTTP/1.1 201 CREATED
+Content-Type: application/json
+Content-Length: 123
+
 {
   "id": 1,
   "name": "Khalim",

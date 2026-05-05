@@ -1,6 +1,10 @@
-curl -X PUT http://127.0.0.1:5000/accounts/1 \
+curl -i -X PUT http://127.0.0.1:5000/accounts/1 \
 -H "Content-Type: application/json" \
 -d '{"name":"Updated","email":"updated@email.com","address":"Semarang","phone_number":"0899999999"}'
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 123
 
 Response:
 {
@@ -8,5 +12,5 @@ Response:
   "name": "Updated",
   "email": "updated@email.com",
   "address": "Semarang",
-  "phone_number": "08153442452"
+  "phone_number": "0899999999"
 }

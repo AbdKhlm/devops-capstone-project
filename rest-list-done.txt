@@ -1,6 +1,9 @@
-curl -X GET http://127.0.0.1:5000/accounts
+curl -i -X GET http://127.0.0.1:5000/accounts
 
-Response:
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 123
+
 [
   {
     "id": 1,

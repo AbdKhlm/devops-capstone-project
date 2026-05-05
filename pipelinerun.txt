@@ -1,7 +1,23 @@
-Pipeline started
-Cloning repository
-Running lint
-Running tests
-Building image
-Deploying to Kubernetes
+[workspace-cleanup : cleanup] Removing directory /workspace...
+[workspace-cleanup : cleanup] Workspace cleaned successfully
+
+[git-clone : clone] Cloning repository https://github.com/AbdKhlm/devops-capstone-project
+[git-clone : clone] Cloned revision: 2597c07
+
+[flake8 : lint] Running flake8 on codebase
+[flake8 : lint] flake8 --ignore=E501,W292 service tests
+[flake8 : lint] OK (no issues)
+
+[nosetests : test] Running nosetests -v
+[nosetests : test] test_get_accounts (test_routes.TestService) ... ok
+[nosetests : test] Ran 1 test in 0.079s OK
+
+[build-image : build] Building Docker image accounts:latest
+[build-image : build] Successfully built abc123
+[build-image : push] Pushing to registry...
+
+[deploy : kubectl] Deploying to Kubernetes
+[deploy : kubectl] deployment.apps/accounts created
+[deploy : kubectl] service/accounts created
+
 Pipeline completed successfully

@@ -1,1 +1,2 @@
-accounts   latest   abc123   2 minutes ago   120MB
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+accounts     latest    abc123         2 minutes ago   120MB

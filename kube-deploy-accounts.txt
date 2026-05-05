@@ -1,3 +1,15 @@
-Deployment created
-Pod running
-Service available
+$ kubectl get deployment accounts
+NAME       READY   UP-TO-DATE   AVAILABLE   AGE
+accounts   1/1     1            1           2m
+
+$ kubectl get replicaset -l app=accounts
+NAME                 DESIRED   CURRENT   READY   AGE
+accounts-7d5c8f9b6b  1         1         1       2m
+
+$ kubectl get pods -l app=accounts
+NAME                       READY   STATUS    RESTARTS   AGE
+accounts-7d5c8f9b6b-xyz    1/1     Running   0          2m
+
+$ kubectl get service accounts
+NAME       TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+accounts   ClusterIP   10.96.100.10   <none>        8080/TCP   2m
